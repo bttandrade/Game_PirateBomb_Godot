@@ -344,7 +344,7 @@ bomb_scene = ExtResource("2_gr7q5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=220737087]
 sprite_frames = SubResource("SpriteFrames_gsw3t")
-animation = &"hit"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1157136974]
 position = Vector2(0, 6)

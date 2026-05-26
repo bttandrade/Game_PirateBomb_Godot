@@ -1,38 +1,54 @@
 extends CharacterBody2D
 
-const SPEED := 200.0
-const JUMP_FORCE := -400.0
-const GRAVITY := 900.0
+const SPEED           := 200.0
+const JUMP_FORCE      := -400.0
+const GRAVITY         := 900.0
+const KNOCKBACK_FORCE := Vector2(80.0, -200.0)
+const BOMB_CARRY_OFFSET := Vector2(0, -15)
+const MAX_LIVES       := 3
+const DEATH_WAIT      := 1.0
 
-enum State { IDLE, RUN, JUMP, FALL, HIT }
+enum State { IDLE, RUN, JUMP, FALL, HIT, DEAD }
 var current_state: State = State.IDLE
 
 @export var bomb_scene: PackedScene
+var _active_bomb:  Node = null
+var _carried_bomb: Node = null
+var _charging          := false
+var _spawn_point       := Vector2.ZERO
+var _lives             := MAX_LIVES
 
-var active_bomb: Node = null
-var charging = false
-
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim:      AnimatedSprite2D = $AnimatedSprite2D
 @onready var charge_bar: AnimatedSprite2D = $ChargeBar
+@onready var collision:  CollisionShape2D = $CollisionShape2D
+
+@onready var heart1: Sprite2D = $"../CanvasLayer/Hearts/Heart1"
+@onready var heart2: Sprite2D = $"../CanvasLayer/Hearts/Heart2"
+@onready var heart3: Sprite2D = $"../CanvasLayer/Hearts/Heart3"
 
 func _ready() -> void:
 	add_to_group("player")
+	_spawn_point = global_position
 	charge_bar.hide()
-	charge_bar.animation_finished.connect(on_charge_finished)
+	charge_bar.animation_finished.connect(_on_charge_finished)
 
 func _physics_process(delta: float) -> void:
-	apply_gravity(delta)
-	movement()
-	jump()
-	bomb_charge(delta)
+	if current_state == State.DEAD or current_state == State.HIT:
+		_apply_gravity(delta)
+		move_and_slide()
+		return
+	_apply_gravity(delta)
+	_handle_movement()
+	_handle_jump()
+	_handle_bomb_charge(delta)
 	move_and_slide()
-	update_state()
+	_update_state()
 
-func apply_gravity(delta: float) -> void:
+func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
-func movement() -> void:
+func _handle_movement() -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction != 0:
 		velocity.x = direction * SPEED
@@ -40,55 +56,117 @@ func movement() -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-func jump() -> void:
+func _handle_jump() -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_FORCE
 
-func bomb_charge(_delta: float) -> void:
-	if active_bomb != null:
+func _handle_bomb_charge(_delta: float) -> void:
+	if _active_bomb != null and _carried_bomb == null:
+		if Input.is_action_just_pressed("place_bomb"):
+			_pick_up_bomb()
 		return
 
-	if Input.is_action_just_pressed("place_bomb") and not charging:
-		charging = true
+	if _carried_bomb != null:
+		if Input.is_action_just_pressed("place_bomb"):
+			_drop_bomb()
+		return
+
+	if Input.is_action_just_pressed("place_bomb") and not _charging:
+		_charging = true
 		charge_bar.show()
 		charge_bar.play("charge")
+	elif Input.is_action_just_released("place_bomb") and _charging:
+		_cancel_charge()
 
-	elif Input.is_action_just_released("place_bomb") and charging:
-		cancel_charge()
-
-func on_charge_finished() -> void:
-	if not charging:
+func _on_charge_finished() -> void:
+	if not _charging:
 		return
-	charging = false
+	_charging = false
 	charge_bar.hide()
-	place_bomb()
+	if _carried_bomb != null:
+		_drop_bomb()
+	else:
+		_place_bomb()
 
-func cancel_charge() -> void:
-	charging = false
+func _cancel_charge() -> void:
+	_charging = false
 	charge_bar.stop()
 	charge_bar.hide()
 
-func place_bomb() -> void:
+func _place_bomb() -> void:
 	var bomb = bomb_scene.instantiate()
 	bomb.global_position = global_position
-	bomb.exploded.connect(on_bomb_exploded)
+	bomb.exploded.connect(_on_bomb_exploded)
 	get_parent().add_child(bomb)
-	active_bomb = bomb
+	_active_bomb = bomb
 
-func on_bomb_exploded(_pos: Vector2) -> void:
-	active_bomb = null
+func _pick_up_bomb() -> void:
+	_carried_bomb = _active_bomb
+	_active_bomb  = null
+	_carried_bomb.get_parent().remove_child(_carried_bomb)
+	add_child(_carried_bomb)
+	_carried_bomb.pick_up()
+	_carried_bomb.position = BOMB_CARRY_OFFSET
 
-func take_hit() -> void:
-	change_state(State.HIT)
+func _drop_bomb() -> void:
+	var bomb      = _carried_bomb
+	bomb.z_index = -1
+	_carried_bomb = null
+	_active_bomb  = bomb
 
-func update_state() -> void:
-	if current_state == State.HIT:
+	var drop_pos = bomb.global_position
+	remove_child(bomb)
+	get_parent().add_child(bomb)
+	bomb.drop(drop_pos)
+
+	_change_state(_get_new_state())
+
+func _on_bomb_exploded(_pos: Vector2) -> void:
+	_active_bomb  = null
+	_carried_bomb = null
+
+func take_hit(bomb_position: Vector2) -> void:
+	if current_state == State.HIT or current_state == State.DEAD:
 		return
-	var new_state := get_new_state()
-	if new_state != current_state:
-		change_state(new_state)
 
-func get_new_state() -> State:
+	if _carried_bomb != null:
+		_drop_bomb()
+		_cancel_charge()
+
+	var direction = sign(global_position.x - bomb_position.x)
+	if direction == 0:
+		direction = 1
+	velocity = Vector2(KNOCKBACK_FORCE.x * direction, KNOCKBACK_FORCE.y)
+
+	_lives -= 1
+	_update_hearts()
+
+	if _lives <= 0:
+		_change_state(State.DEAD)
+	else:
+		_change_state(State.HIT)
+
+func _update_hearts() -> void:
+	match _lives:
+		2: heart3.hide()
+		1: heart2.hide()
+		0: heart1.hide()
+
+func _respawn() -> void:
+	_lives = MAX_LIVES
+	heart1.show()
+	heart2.show()
+	heart3.show()
+	global_position = _spawn_point
+	velocity        = Vector2.ZERO
+	_change_state(State.IDLE)
+
+func _update_state() -> void:
+	var new_state := _get_new_state()
+	if new_state != current_state:
+		_change_state(new_state)
+
+func _get_new_state() -> State:
 	if not is_on_floor():
 		return State.JUMP if velocity.y < 0 else State.FALL
 	elif abs(velocity.x) > 0:
@@ -96,7 +174,7 @@ func get_new_state() -> State:
 	else:
 		return State.IDLE
 
-func change_state(new_state: State) -> void:
+func _change_state(new_state: State) -> void:
 	current_state = new_state
 	match new_state:
 		State.IDLE: anim.play("idle")
@@ -105,7 +183,25 @@ func change_state(new_state: State) -> void:
 		State.FALL: anim.play("fall")
 		State.HIT:
 			anim.play("hit")
-			anim.animation_finished.connect(on_hit_finished, CONNECT_ONE_SHOT)
+			anim.animation_finished.connect(_on_hit_finished, CONNECT_ONE_SHOT)
+		State.DEAD:
+			collision.shape.height = 35
+			anim.play("dead")
+			anim.animation_finished.connect(_on_dead_finished, CONNECT_ONE_SHOT)
 
-func on_hit_finished() -> void:
-	change_state(get_new_state())
+func _on_hit_finished() -> void:
+	if not is_on_floor():
+		await _wait_for_floor()
+	_change_state(_get_new_state())
+
+func _on_dead_finished() -> void:
+	velocity.x = 0
+	await get_tree().create_timer(DEATH_WAIT).timeout
+	collision.shape.height = 46
+	_respawn()
+
+func _wait_for_floor() -> void:
+	while not is_on_floor():
+		_apply_gravity(get_physics_process_delta_time())
+		move_and_slide()
+		await get_tree().process_frame

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7pje5d221mcq"]
+
+[ext_resource type="Texture2D" uid="uid://dg0j5t3fe6665" path="res://sprites/7-objects/11-health_bar/Health Bar.png" id="1_btsqt"]
+[ext_resource type="Texture2D" uid="uid://cv5v7p6tmsn5u" path="res://sprites/7-objects/11-health_bar/Heart.png" id="2_orx3n"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=473806561]
+
+[node name="Hearts" type="Sprite2D" parent="." unique_id=2025079240]
+position = Vector2(77, 31)
+texture = ExtResource("1_btsqt")
+
+[node name="Heart1" type="Sprite2D" parent="Hearts" unique_id=2026674912]
+position = Vector2(-26, 1)
+texture = ExtResource("2_orx3n")
+
+[node name="Heart2" type="Sprite2D" parent="Hearts" unique_id=1674643276]
+position = Vector2(0, 1)
+texture = ExtResource("2_orx3n")
+
+[node name="Heart3" type="Sprite2D" parent="Hearts" unique_id=40399127]
+position = Vector2(26, 1)
+texture = ExtResource("2_orx3n")
