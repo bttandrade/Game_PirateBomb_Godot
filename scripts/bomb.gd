@@ -42,6 +42,12 @@ func _explode() -> void:
 		if dist <= EXPLOSION_RADIUS:
 			player.take_hit(global_position)
 
+func throw(direction: float, force: float) -> void:
+	_carried        = false
+	freeze          = false
+	linear_velocity = Vector2.ZERO
+	linear_velocity = Vector2(direction * force, -force * 0.5)
+
 func _on_animation_finished() -> void:
 	if anim.animation == "explode":
 		queue_free()

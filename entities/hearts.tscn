@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7pje5d221mcq"]
 
-[ext_resource type="Texture2D" uid="uid://dg0j5t3fe6665" path="res://sprites/7-objects/11-health_bar/Health Bar.png" id="1_btsqt"]
-[ext_resource type="Texture2D" uid="uid://cv5v7p6tmsn5u" path="res://sprites/7-objects/11-health_bar/Heart.png" id="2_orx3n"]
+[ext_resource type="Texture2D" uid="uid://dg0j5t3fe6665" path="res://sprites/objects/11-health_bar/Health Bar.png" id="1_btsqt"]
+[ext_resource type="Texture2D" uid="uid://cv5v7p6tmsn5u" path="res://sprites/objects/11-health_bar/Heart.png" id="2_orx3n"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=473806561]
 
