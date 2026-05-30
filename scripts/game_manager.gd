@@ -6,8 +6,12 @@ const CHARACTERS := [
 	preload("res://entities/captain.tscn")
 ]
 
-var current_character: PackedScene
+var player1_scene: PackedScene
+var player2_scene: PackedScene
 
 func _ready() -> void:
 	randomize()
-	current_character = CHARACTERS[randi() % CHARACTERS.size()]
+	var shuffled = CHARACTERS.duplicate()
+	shuffled.shuffle()
+	player1_scene = shuffled[0]
+	player2_scene = shuffled[1]

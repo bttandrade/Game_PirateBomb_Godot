@@ -409,6 +409,9 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_66wck"]
+radius = 21.213203
+
 [node name="Captain" type="CharacterBody2D" unique_id=1808366692 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_g8uks")
@@ -417,21 +420,23 @@ bomb_scene = ExtResource("2_qlagv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=121684591]
 sprite_frames = SubResource("SpriteFrames_jhuoa")
 animation = &"attack"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1096676158]
 position = Vector2(-3, 9)
 shape = SubResource("CapsuleShape2D_3mfrc")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=973082062]
-process_callback = 0
-limit_left = 0
-limit_top = 0
-limit_right = 896
-limit_bottom = 576
-position_smoothing_enabled = true
 
 [node name="ChargeBar" type="AnimatedSprite2D" parent="." unique_id=809581660]
 visible = false
 position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_do1xc")
 animation = &"charge"
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=94696674]
+position = Vector2(24, 6)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=773389853]
+shape = SubResource("CircleShape2D_66wck")
