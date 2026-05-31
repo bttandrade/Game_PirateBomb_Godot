@@ -1,0 +1,357 @@
+[gd_scene format=3 uid="uid://celyugm3yjl2a"]
+
+[ext_resource type="Script" uid="uid://dko8lsrbd3gyt" path="res://scripts/tutorial.gd" id="1_6kiu1"]
+[ext_resource type="Texture2D" uid="uid://csmfleivf1wur" path="res://sprites/ui/Sprites/Yellow Paper/paper.png" id="1_el4dy"]
+[ext_resource type="Texture2D" uid="uid://dulpbnc4txolj" path="res://sprites/ui/Sprites/Small Text/Small Icons/5.png" id="2_frsft"]
+[ext_resource type="Texture2D" uid="uid://bpjjlorc5420w" path="res://sprites/ui/Sprites/Small Text/Small Text/1.png" id="3_6kiu1"]
+[ext_resource type="Texture2D" uid="uid://jb3j5b2nvtnm" path="res://sprites/ui/Sprites/Small Text/Small Text/4.png" id="4_an2vn"]
+[ext_resource type="Texture2D" uid="uid://b6m5jba5gepuk" path="res://sprites/ui/Sprites/Small Text/Small Text/23.png" id="5_gdgty"]
+[ext_resource type="Texture2D" uid="uid://c2n4k1ctdaw0" path="res://sprites/ui/Sprites/Small Text/Small Text/3.png" id="6_l8b88"]
+[ext_resource type="Texture2D" uid="uid://skjfdt2dmrxt" path="res://sprites/ui/Sprites/Small Text/Small Text/22.png" id="7_d1ikk"]
+[ext_resource type="Texture2D" uid="uid://dqfekj0ykrseb" path="res://sprites/ui/Sprites/Small Text/Small Text/2.png" id="8_hgnkk"]
+[ext_resource type="Texture2D" uid="uid://ds0jb5omonoya" path="res://sprites/ui/Sprites/Small Text/Small Icons/1.png" id="9_g2hpu"]
+[ext_resource type="Texture2D" uid="uid://damxo6xakc076" path="res://sprites/ui/Sprites/Small Text/Small Text/21.png" id="10_d1ikk"]
+[ext_resource type="Texture2D" uid="uid://b2410kfdeoamx" path="res://sprites/ui/Sprites/Small Text/Small Icons/2.png" id="10_fjq54"]
+[ext_resource type="Texture2D" uid="uid://bp1nkang3qh07" path="res://sprites/ui/Sprites/Small Text/Small Text/15.png" id="11_hgnkk"]
+[ext_resource type="Texture2D" uid="uid://dselfn2t1r0f4" path="res://sprites/ui/Sprites/Small Text/Small Icons/4.png" id="11_w8j4s"]
+[ext_resource type="Texture2D" uid="uid://dtxqgg6gpfkel" path="res://sprites/ui/Sprites/Small Text/Small Text/5.png" id="12_g2hpu"]
+[ext_resource type="Texture2D" uid="uid://koeislbqydcb" path="res://sprites/ui/Sprites/Small Text/Small Text/40.png" id="12_ycomb"]
+[ext_resource type="Texture2D" uid="uid://cjsbw8x1hfnjj" path="res://sprites/ui/Sprites/Small Text/Small Text/43.png" id="13_2ne6l"]
+[ext_resource type="Texture2D" uid="uid://qlbdjev2l0n5" path="res://sprites/ui/Sprites/Small Text/Small Text/19.png" id="13_fjq54"]
+[ext_resource type="Texture2D" uid="uid://dgpu4yxwvqrx2" path="res://sprites/ui/Sprites/Small Text/Small Text/42.png" id="14_ir2ws"]
+[ext_resource type="Texture2D" uid="uid://50vpeqq3uaop" path="res://sprites/ui/Sprites/Small Text/Small Text/16.png" id="20_hgnkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frsft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kiu1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an2vn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdgty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8b88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1ikk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgnkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2hpu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjq54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8j4s"]
+
+[node name="Tutorial" type="CanvasLayer" unique_id=1153647123]
+script = ExtResource("1_6kiu1")
+metadata/_edit_vertical_guides_ = [295.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=426657109]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1414101242]
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 272.0
+offset_bottom = 294.0
+texture = ExtResource("1_el4dy")
+region_rect = Rect2(0, 0, 74, 70)
+patch_margin_left = 10
+patch_margin_top = 13
+patch_margin_right = 17
+patch_margin_bottom = 9
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1780108404]
+offset_left = 317.0
+offset_top = 20.0
+offset_right = 567.0
+offset_bottom = 294.0
+texture = ExtResource("1_el4dy")
+region_rect = Rect2(0, 0, 74, 70)
+patch_margin_left = 10
+patch_margin_top = 13
+patch_margin_right = 17
+patch_margin_bottom = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747405193]
+position = Vector2(253, 37)
+scale = Vector2(3, 3)
+texture = ExtResource("2_frsft")
+
+[node name="ReturnBtn" type="Button" parent="Sprite2D" unique_id=1753624573]
+offset_left = -4.333331
+offset_top = -3.6666665
+offset_right = 3.666669
+offset_bottom = 4.3333335
+theme_override_styles/normal = SubResource("StyleBoxEmpty_frsft")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6kiu1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_an2vn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gdgty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l8b88")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1953767606]
+position = Vector2(548, 37)
+scale = Vector2(3, 3)
+texture = ExtResource("2_frsft")
+
+[node name="ReturnBtn" type="Button" parent="Sprite2D2" unique_id=314842011]
+offset_left = -4.333331
+offset_top = -3.6666665
+offset_right = 3.666669
+offset_bottom = 4.3333335
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d1ikk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hgnkk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g2hpu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fjq54")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w8j4s")
+
+[node name="P1" type="Control" parent="." unique_id=1858020588]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="3" type="Sprite2D" parent="P1" unique_id=1066565393]
+position = Vector2(53, 51)
+scale = Vector2(4, 4)
+texture = ExtResource("3_6kiu1")
+
+[node name="6" type="Sprite2D" parent="P1" unique_id=1848397619]
+position = Vector2(90, 51)
+scale = Vector2(4, 4)
+texture = ExtResource("4_an2vn")
+
+[node name="23" type="Sprite2D" parent="P1" unique_id=637693103]
+position = Vector2(52, 91)
+scale = Vector2(4, 4)
+texture = ExtResource("5_gdgty")
+
+[node name="8" type="Sprite2D" parent="P1" unique_id=1825048095]
+position = Vector2(51, 129)
+scale = Vector2(4, 4)
+texture = ExtResource("6_l8b88")
+
+[node name="22" type="Sprite2D" parent="P1" unique_id=877145264]
+position = Vector2(52, 172)
+scale = Vector2(4, 4)
+texture = ExtResource("7_d1ikk")
+
+[node name="7" type="Sprite2D" parent="P1" unique_id=892584996]
+position = Vector2(51, 216)
+scale = Vector2(4, 4)
+texture = ExtResource("8_hgnkk")
+
+[node name="21" type="Sprite2D" parent="P1" unique_id=1295287782]
+position = Vector2(75, 58)
+texture = ExtResource("10_d1ikk")
+
+[node name="15" type="Sprite2D" parent="P1" unique_id=1189541971]
+position = Vector2(69, 58)
+texture = ExtResource("11_hgnkk")
+
+[node name="5" type="Sprite2D" parent="P1" unique_id=1500423328]
+position = Vector2(47.5, 255)
+scale = Vector2(3, 3)
+texture = ExtResource("12_g2hpu")
+
+[node name="19" type="Sprite2D" parent="P1" unique_id=822345820]
+position = Vector2(64.5, 255)
+scale = Vector2(3, 3)
+texture = ExtResource("13_fjq54")
+
+[node name="4" type="Sprite2D" parent="P1" unique_id=756917656]
+position = Vector2(81.50001, 255)
+scale = Vector2(3, 3)
+texture = ExtResource("6_l8b88")
+
+[node name="Sides" type="Label" parent="P1" unique_id=766983266]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 42.0
+offset_right = 256.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Move para os lados"
+
+[node name="Jump" type="Label" parent="P1" unique_id=1342875450]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 82.0
+offset_right = 219.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pressione para pular"
+
+[node name="Catch" type="Label" parent="P1" unique_id=424009978]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 117.0
+offset_right = 296.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pega a bomba e ao segurar 
+arremesa"
+
+[node name="Bomb" type="Label" parent="P1" unique_id=1866059631]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 160.0
+offset_right = 297.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Segure para colocar uma 
+bomba"
+
+[node name="Attack" type="Label" parent="P1" unique_id=670830274]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 206.0
+offset_right = 297.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pressione para atacar"
+
+[node name="Pause" type="Label" parent="P1" unique_id=1193820062]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 246.0
+offset_right = 325.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pressione para pausar"
+
+[node name="P2" type="Control" parent="." unique_id=683748028]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="Sprite2D" parent="P2" unique_id=1356199383]
+position = Vector2(349, 53)
+scale = Vector2(4, 4)
+texture = ExtResource("9_g2hpu")
+
+[node name="2" type="Sprite2D" parent="P2" unique_id=520085443]
+position = Vector2(388, 53)
+scale = Vector2(4, 4)
+texture = ExtResource("10_fjq54")
+
+[node name="4" type="Sprite2D" parent="P2" unique_id=1441488260]
+position = Vector2(348, 92)
+scale = Vector2(4, 4)
+texture = ExtResource("11_w8j4s")
+
+[node name="40" type="Sprite2D" parent="P2" unique_id=491904553]
+position = Vector2(349, 131)
+scale = Vector2(4, 4)
+texture = ExtResource("12_ycomb")
+
+[node name="43" type="Sprite2D" parent="P2" unique_id=1548988686]
+position = Vector2(348, 175)
+scale = Vector2(4, 4)
+texture = ExtResource("13_2ne6l")
+
+[node name="42" type="Sprite2D" parent="P2" unique_id=514675943]
+position = Vector2(346, 215)
+scale = Vector2(4, 4)
+texture = ExtResource("14_ir2ws")
+
+[node name="Sides" type="Label" parent="P2" unique_id=1015808588]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 44.0
+offset_right = 556.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Move para os lados"
+
+[node name="Jump" type="Label" parent="P2" unique_id=1790014188]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 80.0
+offset_right = 518.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pressione para pular"
+
+[node name="Catch" type="Label" parent="P2" unique_id=1835386440]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 115.0
+offset_right = 596.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pega a bomba e ao segurar 
+arremesa"
+
+[node name="Bomb" type="Label" parent="P2" unique_id=745533609]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 164.0
+offset_right = 595.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Segure para colocar uma 
+bomba"
+
+[node name="Attack" type="Label" parent="P2" unique_id=2008469954]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 204.0
+offset_right = 594.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pressione para atacar"
+
+[node name="Pause" type="Label" parent="P2" unique_id=823505543]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 241.0
+offset_right = 594.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = ": Pressione para pausar"
+
+[node name="21" type="Sprite2D" parent="P2" unique_id=1126968213]
+position = Vector2(371.5, 60)
+texture = ExtResource("10_d1ikk")
+
+[node name="15" type="Sprite2D" parent="P2" unique_id=553745832]
+position = Vector2(365.5, 60)
+texture = ExtResource("11_hgnkk")
+
+[node name="16" type="Sprite2D" parent="P2" unique_id=1202735817]
+position = Vector2(348, 252)
+scale = Vector2(4, 4)
+texture = ExtResource("20_hgnkk")
+
+[connection signal="pressed" from="Sprite2D/ReturnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="Sprite2D2/ReturnBtn" to="." method="_on_return_btn_pressed"]

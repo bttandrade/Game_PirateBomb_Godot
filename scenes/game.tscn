@@ -1,0 +1,441 @@
+[gd_scene format=3 uid="uid://wuov3qqkqij8"]
+
+[ext_resource type="Script" uid="uid://bfs4ny2sr3yku" path="res://scripts/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://b5x8henr33oj1" path="res://scenes/game_world.tscn" id="2_p57ef"]
+[ext_resource type="Texture2D" uid="uid://dg0j5t3fe6665" path="res://sprites/objects/11-health_bar/Health Bar.png" id="3_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://cv5v7p6tmsn5u" path="res://sprites/objects/11-health_bar/Heart.png" id="4_gee14"]
+[ext_resource type="PackedScene" uid="uid://celyugm3yjl2a" path="res://entities/tutorial.tscn" id="5_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dvfwcdq1t0u0p" path="res://sprites/ui/Sprites/Yellow Button/1.png" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://bokbwoy2ddsk2" path="res://sprites/ui/Sprites/Small Text/Small Icons/11.png" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://n73af27wf8aa" path="res://sprites/ui/Sprites/Yellow Button/2.png" id="8_37s47"]
+[ext_resource type="Texture2D" uid="uid://baau5kqopwf0j" path="res://sprites/ui/Sprites/Yellow Button/3.png" id="9_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://of7r0wkan7ih" path="res://sprites/ui/Sprites/Yellow Button/4.png" id="10_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://bp1nkang3qh07" path="res://sprites/ui/Sprites/Small Text/Small Text/15.png" id="14_sww3w"]
+[ext_resource type="Texture2D" uid="uid://b2brjxl68km5h" path="res://sprites/ui/Sprites/Small Text/Small Text/13.png" id="15_264po"]
+[ext_resource type="Texture2D" uid="uid://bpjjlorc5420w" path="res://sprites/ui/Sprites/Small Text/Small Text/1.png" id="16_sgl2t"]
+[ext_resource type="Texture2D" uid="uid://bkw0eor41giv2" path="res://sprites/ui/Sprites/Small Text/Small Text/18.png" id="17_qouja"]
+[ext_resource type="Texture2D" uid="uid://damxo6xakc076" path="res://sprites/ui/Sprites/Small Text/Small Text/21.png" id="18_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://dwjy1atln0mh0" path="res://sprites/ui/Sprites/Small Text/Small Text/14.png" id="19_v2yb1"]
+[ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/Sprites/Small Text/Small Text/20.png" id="20_js0lu"]
+[ext_resource type="Texture2D" uid="uid://dtxqgg6gpfkel" path="res://sprites/ui/Sprites/Small Text/Small Text/5.png" id="22_twgab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5sy4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gee14"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tnpc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vtaks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvpfn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02fa5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nepv3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7025r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m4url"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ool0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pr1ej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05nbr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sl42"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oaba0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_458eo"]
+
+[node name="LocalGame" type="Node2D" unique_id=1914907118]
+script = ExtResource("1_iywne")
+metadata/_edit_horizontal_guides_ = [640.0, 576.0]
+metadata/_edit_vertical_guides_ = [896.0]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=892576671]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1495742487]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=29701291]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(295, 320)
+render_target_update_mode = 4
+
+[node name="GameWorld" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=788457626 instance=ExtResource("2_p57ef")]
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1345245710]
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 896
+limit_bottom = 576
+position_smoothing_enabled = true
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=1487505961]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=1799213798]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(295, 320)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1406582794]
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 896
+limit_bottom = 576
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1724766273]
+
+[node name="HUDP1" type="Sprite2D" parent="CanvasLayer" unique_id=942429264]
+position = Vector2(77, 31)
+texture = ExtResource("3_u5sy4")
+
+[node name="Heart1P1" type="Sprite2D" parent="CanvasLayer/HUDP1" unique_id=1686121775]
+position = Vector2(-26, 0)
+texture = ExtResource("4_gee14")
+
+[node name="Heart2P1" type="Sprite2D" parent="CanvasLayer/HUDP1" unique_id=1061654898]
+texture = ExtResource("4_gee14")
+
+[node name="Heart3P1" type="Sprite2D" parent="CanvasLayer/HUDP1" unique_id=1412947824]
+position = Vector2(26, 0)
+texture = ExtResource("4_gee14")
+
+[node name="HUDP2" type="Sprite2D" parent="CanvasLayer" unique_id=903028021]
+position = Vector2(376, 31)
+texture = ExtResource("3_u5sy4")
+
+[node name="Heart1P2" type="Sprite2D" parent="CanvasLayer/HUDP2" unique_id=1355172231]
+position = Vector2(-26, 0)
+texture = ExtResource("4_gee14")
+
+[node name="Heart2P2" type="Sprite2D" parent="CanvasLayer/HUDP2" unique_id=1609828763]
+texture = ExtResource("4_gee14")
+
+[node name="Heart3P2" type="Sprite2D" parent="CanvasLayer/HUDP2" unique_id=1432307772]
+position = Vector2(26, 0)
+texture = ExtResource("4_gee14")
+
+[node name="Tutorial" parent="." unique_id=1153647123 instance=ExtResource("5_0tnpc")]
+visible = false
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1186752261]
+
+[node name="1" type="Sprite2D" parent="PauseMenu" unique_id=1471221510]
+position = Vector2(275, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("6_p57ef")
+
+[node name="11" type="Sprite2D" parent="PauseMenu/1" unique_id=2033506411]
+position = Vector2(0.5, -1)
+texture = ExtResource("7_u5sy4")
+
+[node name="PauseBtn" type="Button" parent="PauseMenu/1" unique_id=2004444658]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gee14")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0tnpc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vtaks")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kvpfn")
+
+[node name="2" type="Sprite2D" parent="PauseMenu" unique_id=1619435954]
+position = Vector2(570, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("6_p57ef")
+
+[node name="11" type="Sprite2D" parent="PauseMenu/2" unique_id=942907860]
+position = Vector2(0.5, -1)
+texture = ExtResource("7_u5sy4")
+
+[node name="PauseBtn" type="Button" parent="PauseMenu/2" unique_id=1580706664]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gee14")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0tnpc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vtaks")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kvpfn")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=543993196]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="Resume" type="Control" parent="PauseMenu/ColorRect" unique_id=355207484]
+anchors_preset = 0
+offset_left = -71.0
+offset_top = 11.0
+offset_right = -31.0
+offset_bottom = 51.0
+scale = Vector2(1.5, 1.5)
+
+[node name="2" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=110492989]
+position = Vector2(122.666664, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("8_37s47")
+
+[node name="3" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1330743563]
+position = Vector2(150.66667, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bt5mj")
+
+[node name="4" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=839409251]
+position = Vector2(178.66667, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("10_e1j6l")
+
+[node name="18" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1635938743]
+position = Vector2(124.416664, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_qouja")
+
+[node name="5" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1086314930]
+position = Vector2(133.08333, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_twgab")
+
+[node name="20" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1308194530]
+position = Vector2(141.75, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_js0lu")
+
+[node name="15" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=114508970]
+position = Vector2(150.41667, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_sww3w")
+
+[node name="13" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1630681229]
+position = Vector2(159.08333, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_264po")
+
+[node name="1" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1976889442]
+position = Vector2(167.74998, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_sgl2t")
+
+[node name="19" type="Sprite2D" parent="PauseMenu/ColorRect/Resume" unique_id=1394050533]
+position = Vector2(176.41666, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_qouja")
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/ColorRect/Resume" unique_id=1708085718]
+layout_mode = 0
+offset_left = 108.66667
+offset_top = 76.0
+offset_right = 192.66663
+offset_bottom = 104.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_02fa5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nepv3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7025r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_m4url")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ool0")
+
+[node name="Resume2" type="Control" parent="PauseMenu/ColorRect" unique_id=1701414252]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 10.0
+offset_right = 261.0
+offset_bottom = 50.0
+scale = Vector2(1.5, 1.5)
+
+[node name="2" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=1137306605]
+position = Vector2(122.666664, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("8_37s47")
+
+[node name="3" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=2050861658]
+position = Vector2(150.66667, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bt5mj")
+
+[node name="4" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=1621626839]
+position = Vector2(178.66667, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("10_e1j6l")
+
+[node name="18" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=934627020]
+position = Vector2(124.416664, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_qouja")
+
+[node name="5" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=58572511]
+position = Vector2(133.08333, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_twgab")
+
+[node name="20" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=1337750928]
+position = Vector2(141.75, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_js0lu")
+
+[node name="15" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=1030377365]
+position = Vector2(150.41667, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_sww3w")
+
+[node name="13" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=2081221303]
+position = Vector2(159.08333, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_264po")
+
+[node name="1" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=1835248286]
+position = Vector2(167.74998, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_sgl2t")
+
+[node name="19" type="Sprite2D" parent="PauseMenu/ColorRect/Resume2" unique_id=127912935]
+position = Vector2(176.41666, 87.833336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_qouja")
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/ColorRect/Resume2" unique_id=1339137957]
+layout_mode = 0
+offset_left = 108.66667
+offset_top = 76.0
+offset_right = 192.66663
+offset_bottom = 104.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_02fa5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nepv3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7025r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_m4url")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ool0")
+
+[node name="Return" type="Control" parent="PauseMenu/ColorRect" unique_id=256874733]
+anchors_preset = 0
+offset_left = -71.0
+offset_top = 11.0
+offset_right = -31.0
+offset_bottom = 51.0
+scale = Vector2(1.5, 1.5)
+
+[node name="2" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=358126969]
+position = Vector2(122.666664, 125.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("8_37s47")
+
+[node name="3" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=496957244]
+position = Vector2(150.66666, 125.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bt5mj")
+
+[node name="4" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=357552673]
+position = Vector2(178.66666, 125.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("10_e1j6l")
+
+[node name="13" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=1153326834]
+position = Vector2(137.75, 123.16668)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_264po")
+
+[node name="5" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=434613484]
+position = Vector2(146.41666, 123.16667)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_twgab")
+
+[node name="14" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=827639151]
+position = Vector2(155.08333, 123.166664)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_v2yb1")
+
+[node name="21" type="Sprite2D" parent="PauseMenu/ColorRect/Return" unique_id=1273643957]
+position = Vector2(163.75002, 123.16668)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_ssvqc")
+
+[node name="ReturnBtn" type="Button" parent="PauseMenu/ColorRect/Return" unique_id=340290741]
+layout_mode = 0
+offset_left = 108.66667
+offset_top = 111.333336
+offset_right = 192.66666
+offset_bottom = 140.33334
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pr1ej")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_05nbr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0sl42")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_oaba0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_458eo")
+
+[node name="Return2" type="Control" parent="PauseMenu/ColorRect" unique_id=1562122181]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 10.0
+offset_right = 261.0
+offset_bottom = 50.0
+scale = Vector2(1.5, 1.5)
+
+[node name="2" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=1583907987]
+position = Vector2(122.666664, 125.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("8_37s47")
+
+[node name="3" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=99551729]
+position = Vector2(150.66666, 125.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bt5mj")
+
+[node name="4" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=1833140403]
+position = Vector2(178.66666, 125.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("10_e1j6l")
+
+[node name="13" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=896717566]
+position = Vector2(137.75, 123.16668)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_264po")
+
+[node name="5" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=1815549310]
+position = Vector2(146.41666, 123.16667)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_twgab")
+
+[node name="14" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=190779367]
+position = Vector2(155.08333, 123.166664)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_v2yb1")
+
+[node name="21" type="Sprite2D" parent="PauseMenu/ColorRect/Return2" unique_id=2145251150]
+position = Vector2(163.75002, 123.16668)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_ssvqc")
+
+[node name="ReturnBtn" type="Button" parent="PauseMenu/ColorRect/Return2" unique_id=1541685042]
+layout_mode = 0
+offset_left = 108.66667
+offset_top = 111.333336
+offset_right = 192.66666
+offset_bottom = 140.33334
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pr1ej")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_05nbr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0sl42")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_oaba0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_458eo")
+
+[connection signal="pressed" from="PauseMenu/1/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/2/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/ColorRect/Resume/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/ColorRect/Resume2/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/ColorRect/Return/ReturnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/ColorRect/Return2/ReturnBtn" to="." method="_on_return_btn_pressed"]

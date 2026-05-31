@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0aqp6tlfelj8" path="res://sprites/tilesets/Tile-Sets (64-64).png" id="1_0biqy"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0biqy"]
 texture = ExtResource("1_0biqy")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -38,9 +38,9 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_h2yge"]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_0xm2m")
+sources/0 = SubResource("TileSetAtlasSource_0biqy")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47u71"]
 texture = ExtResource("1_0biqy")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
@@ -111,7 +111,7 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_lquwl"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_1bvp3")
+sources/0 = SubResource("TileSetAtlasSource_47u71")
 
 [node name="GameWorld" type="Node2D" unique_id=788457626]
 

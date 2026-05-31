@@ -14,14 +14,14 @@ var _carried   := false
 func _ready() -> void:
 	anim.play("fuse")
 	anim.animation_finished.connect(_on_animation_finished)
-
+	
 func _physics_process(delta: float) -> void:
 	if _exploding:
 		return
 	_timer += delta
 	if _timer >= FUSE_TIME:
 		_explode()
-
+		
 func pick_up() -> void:
 	_carried = true
 	freeze   = true
@@ -30,7 +30,7 @@ func drop(drop_position: Vector2) -> void:
 	_carried        = false
 	freeze          = false
 	global_position = drop_position
-
+	
 func _explode() -> void:
 	_exploding = true
 	freeze     = true
@@ -41,13 +41,13 @@ func _explode() -> void:
 		var dist = global_position.distance_to(player.global_position)
 		if dist <= EXPLOSION_RADIUS:
 			player.take_hit(global_position)
-
+			
 func throw(direction: float, force: float) -> void:
 	_carried        = false
 	freeze          = false
 	linear_velocity = Vector2.ZERO
 	linear_velocity = Vector2(direction * force, -force * 0.5)
-
+	
 func _on_animation_finished() -> void:
 	if anim.animation == "explode":
 		queue_free()

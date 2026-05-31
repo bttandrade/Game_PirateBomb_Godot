@@ -447,9 +447,8 @@ bomb_scene = ExtResource("2_istmh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391520312]
 sprite_frames = SubResource("SpriteFrames_6djkm")
-animation = &"attack"
-frame = 11
-frame_progress = 1.0
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=333265959]
 position = Vector2(0, 6)

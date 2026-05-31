@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+class_name Character
+
 const SPEED             := 200.0
 const JUMP_FORCE        := -400.0
 const GRAVITY           := 900.0
-const KNOCKBACK_FORCE   := Vector2(150.0, -200.0)
+const KNOCKBACK_FORCE   := Vector2(80.0, -200.0)
 const ATTACK_KNOCKBACK  := Vector2(250.0, -150.0)
 const MAX_LIVES         := 3
 const DEATH_WAIT        := 1.0
@@ -12,13 +14,15 @@ const THROW_FORCE_MIN   := 200.0
 const THROW_FORCE_MAX   := 600.0
 const THROW_CHARGE_TIME := 1.5
 const ATTACK_RANGE := 40.0
-var attack_hit_frame := 3
+
+var  attack_hit_frame := 3
 
 enum State { IDLE, RUN, JUMP, FALL, HIT, DEAD, ATTACK }
 var current_state: State = State.IDLE
 
 @export var player_id: int = 1
 @export var bomb_scene: PackedScene
+@export var is_demo: bool = false
 
 var _active_bomb:  Node = null
 var _carried_bomb: Node = null
@@ -38,6 +42,7 @@ var _input_attack:     String
 @onready var charge_bar:   AnimatedSprite2D = $ChargeBar
 @onready var collision:    CollisionShape2D = $CollisionShape2D
 @onready var atk_hitbox:   Area2D           = $AttackHitbox
+
 signal life_changed(lives: int)
 
 func _ready() -> void:
@@ -56,6 +61,10 @@ func _ready() -> void:
 	_input_attack     = p + "attack"
 
 func _physics_process(delta: float) -> void:
+	if is_demo:
+		_apply_gravity(delta)
+		move_and_slide()
+		return
 	if current_state == State.DEAD or current_state == State.HIT:
 		_apply_gravity(delta)
 		move_and_slide()
@@ -113,7 +122,7 @@ func _handle_bomb_charge(delta: float) -> void:
 		return
 
 	if _active_bomb != null and _carried_bomb == null:
-		if Input.is_action_just_pressed(_input_place_bomb):
+		if Input.is_action_just_pressed(_input_throw_bomb):
 			var dist = global_position.distance_to(_active_bomb.global_position)
 			if dist <= PICKUP_RADIUS:
 				_pick_up_bomb()
@@ -171,17 +180,19 @@ func _place_bomb() -> void:
 
 func _pick_up_bomb() -> void:
 	_carried_bomb = _active_bomb
+	_carried_bomb.z_index = 2
 	_active_bomb  = null
 	_carried_bomb.get_parent().remove_child(_carried_bomb)
 	add_child(_carried_bomb)
 	_carried_bomb.pick_up()
-	_carried_bomb.position = Vector2(0, -20)
+	_carried_bomb.position = Vector2(0, 20)
 
 func _drop_bomb() -> void:
 	var bomb      = _carried_bomb
 	_carried_bomb = null
 	_active_bomb  = bomb
 	var drop_pos  = bomb.global_position
+	bomb.z_index = -1
 	remove_child(bomb)
 	get_parent().add_child(bomb)
 	bomb.drop(drop_pos)
@@ -189,6 +200,7 @@ func _drop_bomb() -> void:
 
 func _throw_bomb() -> void:
 	var bomb      = _carried_bomb
+	bomb.z_index = -1
 	_carried_bomb = null
 	_active_bomb  = bomb
 	var throw_pos = bomb.global_position
@@ -285,3 +297,5 @@ func _wait_for_floor() -> void:
 		_apply_gravity(get_physics_process_delta_time())
 		move_and_slide()
 		await get_tree().process_frame
+		
+		
