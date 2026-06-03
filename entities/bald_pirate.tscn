@@ -443,7 +443,9 @@ radius = 21.213203
 [node name="BaldPirate" type="CharacterBody2D" unique_id=1010524013 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_81uy2")
+player_id = null
 bomb_scene = ExtResource("2_istmh")
+is_demo = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391520312]
 sprite_frames = SubResource("SpriteFrames_6djkm")
@@ -467,3 +469,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=532390286]
 shape = SubResource("CircleShape2D_v4bau")
+
+[node name="AudioAttack" type="AudioStreamPlayer" parent="." unique_id=478442731]
+
+[node name="AudioHit" type="AudioStreamPlayer" parent="." unique_id=1638962250]

@@ -487,3 +487,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=1981413474]
 shape = SubResource("CircleShape2D_ho5jp")
+
+[node name="AudioAttack" type="AudioStreamPlayer" parent="." unique_id=2057579112]
+
+[node name="AudioHit" type="AudioStreamPlayer" parent="." unique_id=88295582]

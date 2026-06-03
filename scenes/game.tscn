@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bpjjlorc5420w" path="res://sprites/ui/Sprites/Small Text/Small Text/1.png" id="16_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://bkw0eor41giv2" path="res://sprites/ui/Sprites/Small Text/Small Text/18.png" id="17_qouja"]
 [ext_resource type="Texture2D" uid="uid://damxo6xakc076" path="res://sprites/ui/Sprites/Small Text/Small Text/21.png" id="18_ssvqc"]
+[ext_resource type="AudioStream" uid="uid://d3ihqw3yd7w5d" path="res://sounds/game.mp3" id="19_264po"]
 [ext_resource type="Texture2D" uid="uid://dwjy1atln0mh0" path="res://sprites/ui/Sprites/Small Text/Small Text/14.png" id="19_v2yb1"]
 [ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/Sprites/Small Text/Small Text/20.png" id="20_js0lu"]
 [ext_resource type="Texture2D" uid="uid://dtxqgg6gpfkel" path="res://sprites/ui/Sprites/Small Text/Small Text/5.png" id="22_twgab"]
@@ -432,6 +433,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_05nbr")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0sl42")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_oaba0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_458eo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2145818128]
+stream = ExtResource("19_264po")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="PauseMenu/1/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="pressed" from="PauseMenu/2/PauseBtn" to="." method="_on_pause_btn_pressed"]

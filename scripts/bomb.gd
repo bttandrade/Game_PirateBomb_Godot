@@ -2,7 +2,7 @@ extends RigidBody2D
 
 signal exploded(bomb_position: Vector2)
 
-const FUSE_TIME        := 3.0
+const FUSE_TIME        := 2.0
 const EXPLOSION_RADIUS := 80.0
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D

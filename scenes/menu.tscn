@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/small_text/small_text/20.png" id="27_b5gwo"]
 [ext_resource type="Texture2D" uid="uid://qlbdjev2l0n5" path="res://sprites/ui/small_text/small_text/19.png" id="28_0ndyk"]
 [ext_resource type="PackedScene" uid="uid://celyugm3yjl2a" path="res://entities/tutorial.tscn" id="35_mhjd8"]
+[ext_resource type="AudioStream" uid="uid://b0lsmsni1hngg" path="res://sounds/menu.mp3" id="37_v8lyk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3h35"]
 
@@ -433,6 +434,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qwtqu")
 
 [node name="Tutorial" parent="." unique_id=1153647123 instance=ExtResource("35_mhjd8")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1821663802]
+stream = ExtResource("37_v8lyk")
+volume_db = -10.0
+pitch_scale = 1.1
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Play/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="Controls/ControlsBtn" to="." method="_on_controls_btn_pressed"]

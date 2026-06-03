@@ -23,6 +23,8 @@ var current_state: State = State.IDLE
 @export var player_id: int = 1
 @export var bomb_scene: PackedScene
 @export var is_demo: bool = false
+@onready var audio_attack: AudioStreamPlayer = $AudioAttack
+@onready var audio_hit: AudioStreamPlayer = $AudioHit
 
 var _active_bomb:  Node = null
 var _carried_bomb: Node = null
@@ -91,10 +93,17 @@ func _handle_movement() -> void:
 
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed(_input_jump) and is_on_floor():
+		var player = AudioStreamPlayer.new()
+		add_child(player)
+		player.stream = load("res://sounds/jump.mp3")
+		player.volume_db = -10.0
+		player.pitch_scale = 0.8
+		player.play()
 		velocity.y = JUMP_FORCE
 
 func _handle_attack() -> void:
 	if Input.is_action_just_pressed(_input_attack) and current_state != State.ATTACK:
+		audio_attack.play(0.1)
 		_change_state(State.ATTACK)
 
 func _activate_hitbox() -> void:
@@ -165,6 +174,15 @@ func _on_charge_finished() -> void:
 		_throw_bomb()
 	else:
 		_place_bomb()
+		var player = AudioStreamPlayer.new()
+		add_child(player)
+		player.stream = load("res://sounds/fuse.mp3")
+		player.play(0.3)
+		
+		await get_tree().create_timer(1.8).timeout
+		player.stop()
+		player.stream = load("res://sounds/explosion.mp3")
+		player.play()
 
 func _cancel_charge() -> void:
 	_charging = false
@@ -220,11 +238,13 @@ func _on_bomb_exploded(_pos: Vector2) -> void:
 func take_hit(source_position: Vector2) -> void:
 	if current_state == State.HIT or current_state == State.DEAD:
 		return
-
+	
+	audio_hit.play()
+	
 	if _carried_bomb != null:
 		_drop_bomb()
 		_cancel_charge()
-
+	
 	var direction = sign(global_position.x - source_position.x)
 	if direction == 0:
 		direction = 1
