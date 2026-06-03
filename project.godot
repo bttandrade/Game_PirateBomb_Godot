@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Novo Projeto de Jogo"
+config/name="Pirate Bomb"
 run/main_scene="uid://oribe0mebmue"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://bvi4x6uoum4so"
+config/windows_native_icon="res://sprites/ui/icon/icon.ico"
 
 [autoload]
 
@@ -23,9 +24,10 @@ GameManager="*uid://cdcsoxdto7x6h"
 
 window/size/viewport_width=590
 window/size/viewport_height=320
+window/size/mode=2
 window/size/window_width_override=1180
 window/size/window_height_override=640
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [global_group]
 

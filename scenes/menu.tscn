@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/small_text/small_text/20.png" id="27_b5gwo"]
 [ext_resource type="Texture2D" uid="uid://qlbdjev2l0n5" path="res://sprites/ui/small_text/small_text/19.png" id="28_0ndyk"]
 [ext_resource type="PackedScene" uid="uid://celyugm3yjl2a" path="res://entities/tutorial.tscn" id="35_mhjd8"]
+[ext_resource type="PackedScene" uid="uid://bg75nsq7kchet" path="res://entities/credits.tscn" id="37_ruys5"]
 [ext_resource type="AudioStream" uid="uid://b0lsmsni1hngg" path="res://sounds/menu.mp3" id="37_v8lyk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3h35"]
@@ -432,7 +433,10 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_jamij")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_nsg6j")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qwtqu")
 
-[node name="Tutorial" parent="." unique_id=1153647123 instance=ExtResource("35_mhjd8")]
+[node name="TutorialLayer" parent="." unique_id=1153647123 instance=ExtResource("35_mhjd8")]
+visible = false
+
+[node name="CreditsLayer" parent="." unique_id=1496068152 instance=ExtResource("37_ruys5")]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1821663802]

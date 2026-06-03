@@ -14,6 +14,7 @@ extends Node2D
 @onready var h2_p2: Sprite2D = $CanvasLayer/HUDP2/Heart2P2
 @onready var h3_p2: Sprite2D = $CanvasLayer/HUDP2/Heart3P2
 @onready var pause_menu: CanvasLayer = $PauseMenu
+@onready var end_game: CanvasLayer = $EndGame
 
 var p1
 var p2
@@ -45,11 +46,31 @@ func _on_p1_life_changed(lives: int) -> void:
 	h1_p1.visible = lives >= 1
 	h2_p1.visible = lives >= 2
 	h3_p1.visible = lives >= 3
+	if lives <= 0:
+		_show_end_game(2)
 
 func _on_p2_life_changed(lives: int) -> void:
 	h1_p2.visible = lives >= 1
 	h2_p2.visible = lives >= 2
 	h3_p2.visible = lives >= 3
+	if lives <= 0:
+		_show_end_game(1)
+
+func _show_end_game(winner: int) -> void:
+	await get_tree().create_timer(1.0).timeout
+	
+	get_tree().paused = true
+	
+	end_game.get_node("P1/Victory").visible = winner == 1
+	end_game.get_node("P1/Defeat").visible = winner == 2
+	end_game.get_node("P2/Victory").visible = winner == 2
+	end_game.get_node("P2/Defeat").visible = winner == 1
+	end_game.visible = true
+	
+	await get_tree().create_timer(2.5).timeout
+	
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_pause_btn_pressed() -> void:
 	get_tree().paused = true

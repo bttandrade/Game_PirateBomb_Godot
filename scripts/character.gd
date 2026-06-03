@@ -8,7 +8,6 @@ const GRAVITY           := 900.0
 const KNOCKBACK_FORCE   := Vector2(80.0, -200.0)
 const ATTACK_KNOCKBACK  := Vector2(250.0, -150.0)
 const MAX_LIVES         := 3
-const DEATH_WAIT        := 1.0
 const PICKUP_RADIUS     := 40.0
 const THROW_FORCE_MIN   := 200.0
 const THROW_FORCE_MAX   := 600.0
@@ -261,13 +260,6 @@ func take_hit(source_position: Vector2) -> void:
 func _update_hearts() -> void:
 	emit_signal("life_changed", _lives)
 
-func _respawn() -> void:
-	_lives = MAX_LIVES
-	emit_signal("life_changed", _lives)
-	global_position = _spawn_point
-	velocity        = Vector2.ZERO
-	_change_state(State.IDLE)
-
 func _update_state() -> void:
 	if current_state == State.ATTACK:
 		return
@@ -309,8 +301,6 @@ func _on_hit_finished() -> void:
 
 func _on_dead_finished() -> void:
 	velocity.x = 0
-	await get_tree().create_timer(DEATH_WAIT).timeout
-	_respawn()
 
 func _wait_for_floor() -> void:
 	while not is_on_floor():

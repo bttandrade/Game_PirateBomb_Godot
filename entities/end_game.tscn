@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://b6tpurbr8cuk4"]
+
+[ext_resource type="Texture2D" uid="uid://cb4mnj40p127x" path="res://sprites/ui/small_banner/1.png" id="2_5g7h3"]
+[ext_resource type="Texture2D" uid="uid://dswuibxbpiemq" path="res://sprites/ui/small_banner/2.png" id="3_0y5ad"]
+[ext_resource type="Texture2D" uid="uid://ccnojahs00bk3" path="res://sprites/ui/small_banner/13.png" id="4_ko8r7"]
+[ext_resource type="Texture2D" uid="uid://de3wdy1jasw0b" path="res://sprites/ui/small_banner/6.png" id="5_hbn52"]
+[ext_resource type="Texture2D" uid="uid://cltinvhrpos8x" path="res://sprites/ui/big_text/23.png" id="5_ryxnr"]
+[ext_resource type="Texture2D" uid="uid://7qphuygtmcga" path="res://sprites/ui/big_text/9.png" id="6_5nwpb"]
+[ext_resource type="Texture2D" uid="uid://ca8ekaao4asws" path="res://sprites/ui/small_banner/9.png" id="6_rq0vp"]
+[ext_resource type="Texture2D" uid="uid://c28c4fckajegr" path="res://sprites/ui/big_text/14.png" id="7_caasg"]
+[ext_resource type="Texture2D" uid="uid://bdq857k8e3q6m" path="res://sprites/ui/small_banner/10.png" id="7_cbxb3"]
+[ext_resource type="Texture2D" uid="uid://dsaw6ceo2yhqj" path="res://sprites/ui/big_text/5.png" id="8_21ybk"]
+[ext_resource type="Texture2D" uid="uid://c2nvvjg177ge5" path="res://sprites/ui/small_banner/5.png" id="8_68uke"]
+[ext_resource type="Texture2D" uid="uid://1p2njgjv61ro" path="res://sprites/ui/big_text/18.png" id="9_tydd5"]
+[ext_resource type="Texture2D" uid="uid://cb187j6fdhhm7" path="res://sprites/ui/big_text/12.png" id="14_lid3g"]
+[ext_resource type="Texture2D" uid="uid://d3hhrm658jipv" path="res://sprites/ui/big_text/15.png" id="15_c1orc"]
+[ext_resource type="Texture2D" uid="uid://ctrmyntpxib42" path="res://sprites/ui/big_text/19.png" id="16_kwnvn"]
+
+[node name="EndGame" type="CanvasLayer" unique_id=1153647123]
+metadata/_edit_vertical_guides_ = [295.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=426657109]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="P1" type="Control" parent="." unique_id=886530382]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Victory" type="Control" parent="P1" unique_id=1948270409]
+anchors_preset = 0
+offset_left = 399.0
+offset_top = -410.0
+offset_right = 439.0
+offset_bottom = -370.0
+scale = Vector2(3, 3)
+
+[node name="1" type="Sprite2D" parent="P1/Victory" unique_id=1656608832]
+position = Vector2(-119, 174)
+texture = ExtResource("2_5g7h3")
+
+[node name="2" type="Sprite2D" parent="P1/Victory" unique_id=1903486529]
+position = Vector2(-48, 174)
+texture = ExtResource("3_0y5ad")
+
+[node name="15" type="Sprite2D" parent="P1/Victory" unique_id=1132330958]
+position = Vector2(-75, 172)
+scale = Vector2(1, -1)
+texture = ExtResource("4_ko8r7")
+
+[node name="13" type="Sprite2D" parent="P1/Victory" unique_id=2057803750]
+position = Vector2(-87, 174)
+texture = ExtResource("4_ko8r7")
+
+[node name="23" type="Sprite2D" parent="P1/Victory" unique_id=1059996248]
+position = Vector2(-97.83333, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ryxnr")
+
+[node name="9" type="Sprite2D" parent="P1/Victory" unique_id=83245452]
+position = Vector2(-91.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_5nwpb")
+
+[node name="14" type="Sprite2D" parent="P1/Victory" unique_id=31912136]
+position = Vector2(-85.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_caasg")
+
+[node name="16" type="Sprite2D" parent="P1/Victory" unique_id=1267021943]
+position = Vector2(-79.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_caasg")
+
+[node name="5" type="Sprite2D" parent="P1/Victory" unique_id=2030054092]
+position = Vector2(-73.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_21ybk")
+
+[node name="18" type="Sprite2D" parent="P1/Victory" unique_id=263561069]
+position = Vector2(-67.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_tydd5")
+
+[node name="Defeat" type="Control" parent="P1" unique_id=1905044386]
+anchors_preset = 0
+offset_left = 401.0
+offset_top = -578.0
+offset_right = 441.0
+offset_bottom = -538.0
+scale = Vector2(3, 3)
+
+[node name="6" type="Sprite2D" parent="P1/Defeat" unique_id=1725971397]
+position = Vector2(-63, 225)
+texture = ExtResource("5_hbn52")
+
+[node name="9" type="Sprite2D" parent="P1/Defeat" unique_id=483061734]
+position = Vector2(-123, 225)
+texture = ExtResource("6_rq0vp")
+
+[node name="10" type="Sprite2D" parent="P1/Defeat" unique_id=1062235026]
+position = Vector2(-45, 225)
+texture = ExtResource("7_cbxb3")
+
+[node name="14" type="Sprite2D" parent="P1/Defeat" unique_id=572275562]
+position = Vector2(-84, 230)
+texture = ExtResource("4_ko8r7")
+
+[node name="5" type="Sprite2D" parent="P1/Defeat" unique_id=577470719]
+position = Vector2(-104, 225)
+texture = ExtResource("8_68uke")
+
+[node name="12" type="Sprite2D" parent="P1/Defeat" unique_id=1499912343]
+position = Vector2(-95.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_lid3g")
+
+[node name="16" type="Sprite2D" parent="P1/Defeat" unique_id=1057975177]
+position = Vector2(-89.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_c1orc")
+
+[node name="19" type="Sprite2D" parent="P1/Defeat" unique_id=1764121993]
+position = Vector2(-83.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_kwnvn")
+
+[node name="7" type="Sprite2D" parent="P1/Defeat" unique_id=559580419]
+position = Vector2(-77.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_21ybk")
+
+[node name="20" type="Sprite2D" parent="P1/Defeat" unique_id=1585962595]
+position = Vector2(-71.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_tydd5")
+
+[node name="P2" type="Control" parent="." unique_id=30519273]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Victory" type="Control" parent="P2" unique_id=727626707]
+anchors_preset = 0
+offset_left = 693.0
+offset_top = -410.0
+offset_right = 733.0
+offset_bottom = -370.0
+scale = Vector2(3, 3)
+
+[node name="1" type="Sprite2D" parent="P2/Victory" unique_id=1486805179]
+position = Vector2(-119, 174)
+texture = ExtResource("2_5g7h3")
+
+[node name="2" type="Sprite2D" parent="P2/Victory" unique_id=1240739371]
+position = Vector2(-48, 174)
+texture = ExtResource("3_0y5ad")
+
+[node name="15" type="Sprite2D" parent="P2/Victory" unique_id=1343115071]
+position = Vector2(-75, 172)
+scale = Vector2(1, -1)
+texture = ExtResource("4_ko8r7")
+
+[node name="13" type="Sprite2D" parent="P2/Victory" unique_id=1194692697]
+position = Vector2(-87, 174)
+texture = ExtResource("4_ko8r7")
+
+[node name="23" type="Sprite2D" parent="P2/Victory" unique_id=897026612]
+position = Vector2(-97.83333, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ryxnr")
+
+[node name="9" type="Sprite2D" parent="P2/Victory" unique_id=1705623984]
+position = Vector2(-91.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_5nwpb")
+
+[node name="14" type="Sprite2D" parent="P2/Victory" unique_id=1822964789]
+position = Vector2(-85.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_caasg")
+
+[node name="16" type="Sprite2D" parent="P2/Victory" unique_id=1188014739]
+position = Vector2(-79.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_caasg")
+
+[node name="5" type="Sprite2D" parent="P2/Victory" unique_id=1836738674]
+position = Vector2(-73.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_21ybk")
+
+[node name="18" type="Sprite2D" parent="P2/Victory" unique_id=1415304763]
+position = Vector2(-67.83332, 173.08333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_tydd5")
+
+[node name="Defeat" type="Control" parent="P2" unique_id=266410055]
+anchors_preset = 0
+offset_left = 693.0
+offset_top = -578.0
+offset_right = 733.0
+offset_bottom = -538.0
+scale = Vector2(3, 3)
+
+[node name="6" type="Sprite2D" parent="P2/Defeat" unique_id=727605329]
+position = Vector2(-63, 225)
+texture = ExtResource("5_hbn52")
+
+[node name="9" type="Sprite2D" parent="P2/Defeat" unique_id=54416999]
+position = Vector2(-123, 225)
+texture = ExtResource("6_rq0vp")
+
+[node name="10" type="Sprite2D" parent="P2/Defeat" unique_id=1373208259]
+position = Vector2(-45, 225)
+texture = ExtResource("7_cbxb3")
+
+[node name="14" type="Sprite2D" parent="P2/Defeat" unique_id=1133378546]
+position = Vector2(-84, 230)
+texture = ExtResource("4_ko8r7")
+
+[node name="5" type="Sprite2D" parent="P2/Defeat" unique_id=2011836918]
+position = Vector2(-104, 225)
+texture = ExtResource("8_68uke")
+
+[node name="12" type="Sprite2D" parent="P2/Defeat" unique_id=1455422333]
+position = Vector2(-95.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_lid3g")
+
+[node name="16" type="Sprite2D" parent="P2/Defeat" unique_id=1847295038]
+position = Vector2(-89.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_c1orc")
+
+[node name="19" type="Sprite2D" parent="P2/Defeat" unique_id=983121084]
+position = Vector2(-83.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_kwnvn")
+
+[node name="7" type="Sprite2D" parent="P2/Defeat" unique_id=380813152]
+position = Vector2(-77.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_21ybk")
+
+[node name="20" type="Sprite2D" parent="P2/Defeat" unique_id=509299786]
+position = Vector2(-71.83334, 228.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_tydd5")

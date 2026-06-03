@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://wuov3qqkqij8"]
 
-[ext_resource type="Script" uid="uid://bfs4ny2sr3yku" path="res://scripts/game.gd" id="1_iywne"]
+[ext_resource type="Script" uid="uid://bfs4ny2sr3yku" path="res://scripts/local_game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://b5x8henr33oj1" path="res://scenes/game_world.tscn" id="2_p57ef"]
 [ext_resource type="Texture2D" uid="uid://dg0j5t3fe6665" path="res://sprites/objects/11-health_bar/Health Bar.png" id="3_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cv5v7p6tmsn5u" path="res://sprites/objects/11-health_bar/Heart.png" id="4_gee14"]
-[ext_resource type="PackedScene" uid="uid://celyugm3yjl2a" path="res://entities/tutorial.tscn" id="5_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://dvfwcdq1t0u0p" path="res://sprites/ui/Sprites/Yellow Button/1.png" id="6_p57ef"]
-[ext_resource type="Texture2D" uid="uid://bokbwoy2ddsk2" path="res://sprites/ui/Sprites/Small Text/Small Icons/11.png" id="7_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://n73af27wf8aa" path="res://sprites/ui/Sprites/Yellow Button/2.png" id="8_37s47"]
-[ext_resource type="Texture2D" uid="uid://baau5kqopwf0j" path="res://sprites/ui/Sprites/Yellow Button/3.png" id="9_bt5mj"]
-[ext_resource type="Texture2D" uid="uid://of7r0wkan7ih" path="res://sprites/ui/Sprites/Yellow Button/4.png" id="10_e1j6l"]
-[ext_resource type="Texture2D" uid="uid://bp1nkang3qh07" path="res://sprites/ui/Sprites/Small Text/Small Text/15.png" id="14_sww3w"]
-[ext_resource type="Texture2D" uid="uid://b2brjxl68km5h" path="res://sprites/ui/Sprites/Small Text/Small Text/13.png" id="15_264po"]
-[ext_resource type="Texture2D" uid="uid://bpjjlorc5420w" path="res://sprites/ui/Sprites/Small Text/Small Text/1.png" id="16_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://bkw0eor41giv2" path="res://sprites/ui/Sprites/Small Text/Small Text/18.png" id="17_qouja"]
-[ext_resource type="Texture2D" uid="uid://damxo6xakc076" path="res://sprites/ui/Sprites/Small Text/Small Text/21.png" id="18_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://dvfwcdq1t0u0p" path="res://sprites/ui/yellow_button/1.png" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://bokbwoy2ddsk2" path="res://sprites/ui/small_text/small_icons/11.png" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://n73af27wf8aa" path="res://sprites/ui/yellow_button/2.png" id="8_37s47"]
+[ext_resource type="Texture2D" uid="uid://baau5kqopwf0j" path="res://sprites/ui/yellow_button/3.png" id="9_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://of7r0wkan7ih" path="res://sprites/ui/yellow_button/4.png" id="10_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://bp1nkang3qh07" path="res://sprites/ui/small_text/small_text/15.png" id="14_sww3w"]
+[ext_resource type="Texture2D" uid="uid://b2brjxl68km5h" path="res://sprites/ui/small_text/small_text/13.png" id="15_264po"]
+[ext_resource type="Texture2D" uid="uid://bpjjlorc5420w" path="res://sprites/ui/small_text/small_text/1.png" id="16_sgl2t"]
+[ext_resource type="Texture2D" uid="uid://bkw0eor41giv2" path="res://sprites/ui/small_text/small_text/18.png" id="17_qouja"]
+[ext_resource type="Texture2D" uid="uid://damxo6xakc076" path="res://sprites/ui/small_text/small_text/21.png" id="18_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://b6tpurbr8cuk4" path="res://entities/end_game.tscn" id="19_1kice"]
 [ext_resource type="AudioStream" uid="uid://d3ihqw3yd7w5d" path="res://sounds/game.mp3" id="19_264po"]
-[ext_resource type="Texture2D" uid="uid://dwjy1atln0mh0" path="res://sprites/ui/Sprites/Small Text/Small Text/14.png" id="19_v2yb1"]
-[ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/Sprites/Small Text/Small Text/20.png" id="20_js0lu"]
-[ext_resource type="Texture2D" uid="uid://dtxqgg6gpfkel" path="res://sprites/ui/Sprites/Small Text/Small Text/5.png" id="22_twgab"]
+[ext_resource type="Texture2D" uid="uid://dwjy1atln0mh0" path="res://sprites/ui/small_text/small_text/14.png" id="19_v2yb1"]
+[ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/small_text/small_text/20.png" id="20_js0lu"]
+[ext_resource type="Texture2D" uid="uid://dtxqgg6gpfkel" path="res://sprites/ui/small_text/small_text/5.png" id="22_twgab"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5sy4"]
 
@@ -74,9 +74,9 @@ render_target_update_mode = 4
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1345245710]
 process_callback = 0
 limit_left = 0
-limit_top = 0
-limit_right = 896
-limit_bottom = 576
+limit_top = -256
+limit_right = 1920
+limit_bottom = 640
 position_smoothing_enabled = true
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=1487505961]
@@ -92,9 +92,9 @@ render_target_update_mode = 4
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1406582794]
 process_callback = 0
 limit_left = 0
-limit_top = 0
-limit_right = 896
-limit_bottom = 576
+limit_top = -256
+limit_right = 1920
+limit_bottom = 640
 position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1724766273]
@@ -128,9 +128,6 @@ texture = ExtResource("4_gee14")
 [node name="Heart3P2" type="Sprite2D" parent="CanvasLayer/HUDP2" unique_id=1432307772]
 position = Vector2(26, 0)
 texture = ExtResource("4_gee14")
-
-[node name="Tutorial" parent="." unique_id=1153647123 instance=ExtResource("5_0tnpc")]
-visible = false
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1186752261]
 
@@ -439,6 +436,10 @@ stream = ExtResource("19_264po")
 volume_db = -20.0
 autoplay = true
 parameters/looping = true
+
+[node name="EndGame" parent="." unique_id=1153647123 instance=ExtResource("19_1kice")]
+process_mode = 3
+visible = false
 
 [connection signal="pressed" from="PauseMenu/1/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="pressed" from="PauseMenu/2/PauseBtn" to="." method="_on_pause_btn_pressed"]

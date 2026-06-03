@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bg75nsq7kchet"]
+
+[ext_resource type="Script" uid="uid://dko8lsrbd3gyt" path="res://scripts/hidden_layers.gd" id="1_6bwp7"]
+[ext_resource type="Texture2D" uid="uid://csmfleivf1wur" path="res://sprites/ui/yellow_paper/paper.png" id="2_d8fuo"]
+[ext_resource type="Texture2D" uid="uid://dulpbnc4txolj" path="res://sprites/ui/small_text/small_icons/5.png" id="3_7stvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frsft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kiu1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an2vn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdgty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8b88"]
+
+[node name="Credits" type="CanvasLayer" unique_id=1153647123]
+script = ExtResource("1_6bwp7")
+metadata/_edit_vertical_guides_ = [295.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=426657109]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1414101242]
+offset_left = 74.0
+offset_top = 16.0
+offset_right = 516.0
+offset_bottom = 290.0
+texture = ExtResource("2_d8fuo")
+region_rect = Rect2(0, 0, 74, 70)
+patch_margin_left = 10
+patch_margin_top = 13
+patch_margin_right = 17
+patch_margin_bottom = 9
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=613272074]
+offset_left = 89.0
+offset_top = 32.0
+offset_right = 496.0
+offset_bottom = 278.0
+
+[node name="Text" type="Label" parent="ScrollContainer" unique_id=1015808588]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = "Desenvolvido por BRENO ANDRADE
+
+CRÉDITOS
+
+ARTE PIXELADA
+https://pixelfrog-assets.itch.io/
+
+SONS
+https://pixabay.com/sound-effects/musical-music-pop-6-28744/
+https://pixabay.com/sound-effects/musical-pan-captain-hook-theme-33481/
+https://pixabay.com/sound-effects/film-special-effects-fuse-and-small-explosion-95138/
+https://pixabay.com/sound-effects/film-special-effects-medium-explosion-40472/
+https://pixabay.com/sound-effects/film-special-effects-punch-1-166694/
+https://pixabay.com/sound-effects/film-special-effects-punch-2-37333/
+https://pixabay.com/sound-effects/film-special-effects-sword-slash-315218/
+https://pixabay.com/sound-effects/people-grunt1-68324/
+https://pixabay.com/sound-effects/people-argg-81123/
+https://pixabay.com/sound-effects/film-special-effects-cartoon-jump-6462/
+"
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747405193]
+position = Vector2(468, 33)
+scale = Vector2(3, 3)
+texture = ExtResource("3_7stvi")
+
+[node name="ReturnBtn" type="Button" parent="Sprite2D" unique_id=1753624573]
+offset_left = -4.333331
+offset_top = -3.6666665
+offset_right = 3.666669
+offset_bottom = 4.3333335
+theme_override_styles/normal = SubResource("StyleBoxEmpty_frsft")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6kiu1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_an2vn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gdgty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l8b88")
+
+[connection signal="pressed" from="Sprite2D/ReturnBtn" to="." method="_on_return_btn_pressed"]
