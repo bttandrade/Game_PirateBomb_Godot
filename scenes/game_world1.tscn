@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://kicknkarw84h" path="res://sprites/objects/10-big_chain/9.png" id="33_y3o1a"]
 [ext_resource type="Texture2D" uid="uid://dp52fcnkbrrpm" path="res://sprites/objects/10-big_chain/10.png" id="34_3qra0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0biqy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vxqk"]
 texture = ExtResource("1_0biqy")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -71,7 +71,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_h2yge"]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_0biqy")
+sources/0 = SubResource("TileSetAtlasSource_8vxqk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47u71"]
 texture = ExtResource("1_0biqy")
@@ -256,7 +256,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="GameWorld" type="Node2D" unique_id=788457626]
+[node name="GameWorld1" type="Node2D" unique_id=788457626]
 metadata/_edit_horizontal_guides_ = [191.0]
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=158822669]
@@ -476,3 +476,26 @@ autoplay = "default"
 position = Vector2(1752, -14)
 sprite_frames = SubResource("SpriteFrames_cgx8r")
 autoplay = "default"
+
+[node name="ItemSpawns" type="Node2D" parent="." unique_id=1055456906]
+
+[node name="Point1" type="Node2D" parent="ItemSpawns" unique_id=721419215]
+position = Vector2(560, 224)
+
+[node name="Point2" type="Node2D" parent="ItemSpawns" unique_id=877898658]
+position = Vector2(952, 224)
+
+[node name="Point3" type="Node2D" parent="ItemSpawns" unique_id=1668689418]
+position = Vector2(640, 480)
+
+[node name="Point4" type="Node2D" parent="ItemSpawns" unique_id=2146410661]
+position = Vector2(1072, 544)
+
+[node name="Point5" type="Node2D" parent="ItemSpawns" unique_id=787320670]
+position = Vector2(1328, 416)
+
+[node name="Point6" type="Node2D" parent="ItemSpawns" unique_id=112655386]
+position = Vector2(1360, 288)
+
+[node name="Point7" type="Node2D" parent="ItemSpawns" unique_id=1153947923]
+position = Vector2(1424, -32)

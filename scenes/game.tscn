@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://wuov3qqkqij8"]
 
-[ext_resource type="Script" uid="uid://bfs4ny2sr3yku" path="res://scripts/local_game.gd" id="1_iywne"]
-[ext_resource type="PackedScene" uid="uid://b5x8henr33oj1" path="res://scenes/game_world.tscn" id="2_p57ef"]
+[ext_resource type="Script" uid="uid://bfs4ny2sr3yku" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://dg0j5t3fe6665" path="res://sprites/objects/11-health_bar/Health Bar.png" id="3_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cv5v7p6tmsn5u" path="res://sprites/objects/11-health_bar/Heart.png" id="4_gee14"]
 [ext_resource type="Texture2D" uid="uid://dvfwcdq1t0u0p" path="res://sprites/ui/yellow_button/1.png" id="6_p57ef"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bkw0eor41giv2" path="res://sprites/ui/small_text/small_text/18.png" id="17_qouja"]
 [ext_resource type="Texture2D" uid="uid://damxo6xakc076" path="res://sprites/ui/small_text/small_text/21.png" id="18_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://b6tpurbr8cuk4" path="res://entities/end_game.tscn" id="19_1kice"]
+[ext_resource type="Script" uid="uid://dn8j1p1samexy" path="res://scripts/item_spawner.gd" id="19_5newe"]
 [ext_resource type="AudioStream" uid="uid://d3ihqw3yd7w5d" path="res://sounds/game.mp3" id="19_264po"]
 [ext_resource type="Texture2D" uid="uid://dwjy1atln0mh0" path="res://sprites/ui/small_text/small_text/14.png" id="19_v2yb1"]
 [ext_resource type="Texture2D" uid="uid://bik511taskmbf" path="res://sprites/ui/small_text/small_text/20.png" id="20_js0lu"]
@@ -50,7 +50,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_458eo"]
 
-[node name="LocalGame" type="Node2D" unique_id=1914907118]
+[node name="Game" type="Node2D" unique_id=1914907118]
 script = ExtResource("1_iywne")
 metadata/_edit_horizontal_guides_ = [640.0, 576.0]
 metadata/_edit_vertical_guides_ = [896.0]
@@ -68,8 +68,6 @@ handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(295, 320)
 render_target_update_mode = 4
-
-[node name="GameWorld" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=788457626 instance=ExtResource("2_p57ef")]
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1345245710]
 process_callback = 0
@@ -440,6 +438,9 @@ parameters/looping = true
 [node name="EndGame" parent="." unique_id=1153647123 instance=ExtResource("19_1kice")]
 process_mode = 3
 visible = false
+
+[node name="ItemSpawner" type="Node2D" parent="." unique_id=1787178372]
+script = ExtResource("19_5newe")
 
 [connection signal="pressed" from="PauseMenu/1/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="pressed" from="PauseMenu/2/PauseBtn" to="." method="_on_pause_btn_pressed"]

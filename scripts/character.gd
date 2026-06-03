@@ -13,6 +13,7 @@ const THROW_FORCE_MIN   := 200.0
 const THROW_FORCE_MAX   := 600.0
 const THROW_CHARGE_TIME := 1.5
 const ATTACK_RANGE := 40.0
+const MAX_BOMBS := 3
 
 var  attack_hit_frame := 3
 
@@ -25,12 +26,13 @@ var current_state: State = State.IDLE
 @onready var audio_attack: AudioStreamPlayer = $AudioAttack
 @onready var audio_hit: AudioStreamPlayer = $AudioHit
 
-var _active_bomb:  Node = null
+var _active_bombs: Array = []
 var _carried_bomb: Node = null
 var _charging          := false
 var _throw_charge      := 0.0
 var _spawn_point       := Vector2.ZERO
 var _lives             := MAX_LIVES
+var _bomb_count := 1
 
 var _input_left:       String
 var _input_right:      String
@@ -98,6 +100,7 @@ func _handle_jump() -> void:
 		player.volume_db = -10.0
 		player.pitch_scale = 0.8
 		player.play()
+		player.finished.connect(player.queue_free)
 		velocity.y = JUMP_FORCE
 
 func _handle_attack() -> void:
@@ -129,12 +132,12 @@ func _handle_bomb_charge(delta: float) -> void:
 	if current_state == State.ATTACK:
 		return
 
-	if _active_bomb != null and _carried_bomb == null:
-		if Input.is_action_just_pressed(_input_throw_bomb):
-			var dist = global_position.distance_to(_active_bomb.global_position)
+	if _carried_bomb == null and Input.is_action_just_pressed(_input_throw_bomb):
+		for bomb in _active_bombs:
+			var dist = global_position.distance_to(bomb.global_position)
 			if dist <= PICKUP_RADIUS:
-				_pick_up_bomb()
-		return
+				_pick_up_bomb(bomb)
+				return
 
 	if _carried_bomb != null:
 		if Input.is_action_just_pressed(_input_place_bomb):
@@ -155,7 +158,7 @@ func _handle_bomb_charge(delta: float) -> void:
 			charge_bar.stop()
 			charge_bar.hide()
 			_throw_bomb()
-		return
+			return
 
 	if Input.is_action_just_pressed(_input_place_bomb) and not _charging:
 		_charging = true
@@ -182,6 +185,7 @@ func _on_charge_finished() -> void:
 		player.stop()
 		player.stream = load("res://sounds/explosion.mp3")
 		player.play()
+		player.finished.connect(player.queue_free)
 
 func _cancel_charge() -> void:
 	_charging = false
@@ -189,16 +193,19 @@ func _cancel_charge() -> void:
 	charge_bar.hide()
 
 func _place_bomb() -> void:
+	if _bomb_count <= 0:
+		return
+	_bomb_count -= 1
 	var bomb = bomb_scene.instantiate()
 	bomb.global_position = global_position
-	bomb.exploded.connect(_on_bomb_exploded)
+	bomb.exploded.connect(_on_bomb_exploded.bind(bomb))
 	get_parent().add_child(bomb)
-	_active_bomb = bomb
+	_active_bombs.append(bomb)
 
-func _pick_up_bomb() -> void:
-	_carried_bomb = _active_bomb
+func _pick_up_bomb(bomb: Node) -> void:
+	_carried_bomb = bomb
 	_carried_bomb.z_index = 2
-	_active_bomb  = null
+	_active_bombs.erase(bomb)
 	_carried_bomb.get_parent().remove_child(_carried_bomb)
 	add_child(_carried_bomb)
 	_carried_bomb.pick_up()
@@ -207,9 +214,9 @@ func _pick_up_bomb() -> void:
 func _drop_bomb() -> void:
 	var bomb      = _carried_bomb
 	_carried_bomb = null
-	_active_bomb  = bomb
+	_active_bombs.append(bomb)
 	var drop_pos  = bomb.global_position
-	bomb.z_index = -1
+	bomb.z_index  = -1
 	remove_child(bomb)
 	get_parent().add_child(bomb)
 	bomb.drop(drop_pos)
@@ -217,9 +224,9 @@ func _drop_bomb() -> void:
 
 func _throw_bomb() -> void:
 	var bomb      = _carried_bomb
-	bomb.z_index = -1
+	bomb.z_index  = -1
 	_carried_bomb = null
-	_active_bomb  = bomb
+	_active_bombs.append(bomb)
 	var throw_pos = bomb.global_position
 	remove_child(bomb)
 	get_parent().add_child(bomb)
@@ -230,9 +237,20 @@ func _throw_bomb() -> void:
 	bomb.throw(direction, force)
 	_throw_charge = 0.0
 
-func _on_bomb_exploded(_pos: Vector2) -> void:
-	_active_bomb  = null
-	_carried_bomb = null
+func _on_bomb_exploded(_pos: Vector2, bomb: Node) -> void:
+	_active_bombs.erase(bomb)
+	_bomb_count += 1
+	if _carried_bomb == bomb:
+		_carried_bomb = null
+
+func collect_life() -> void:
+	if _lives < MAX_LIVES:
+		_lives += 1
+		_update_hearts()
+
+func collect_bomb() -> void:
+	if _bomb_count + _active_bombs.size() < MAX_BOMBS:
+		_bomb_count += 1
 
 func take_hit(source_position: Vector2) -> void:
 	if current_state == State.HIT or current_state == State.DEAD:

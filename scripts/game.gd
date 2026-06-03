@@ -4,7 +4,6 @@ extends Node2D
 @onready var sub_viewport2: SubViewport = $HBoxContainer/SubViewportContainer2/SubViewport
 @onready var camera1: Camera2D          = $HBoxContainer/SubViewportContainer/SubViewport/Camera2D
 @onready var camera2: Camera2D          = $HBoxContainer/SubViewportContainer2/SubViewport/Camera2D
-@onready var game_world: Node2D         = $HBoxContainer/SubViewportContainer/SubViewport/GameWorld
 
 @onready var h1_p1: Sprite2D = $CanvasLayer/HUDP1/Heart1P1
 @onready var h2_p1: Sprite2D = $CanvasLayer/HUDP1/Heart2P1
@@ -15,11 +14,24 @@ extends Node2D
 @onready var h3_p2: Sprite2D = $CanvasLayer/HUDP2/Heart3P2
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var end_game: CanvasLayer = $EndGame
+@onready var item_spawner: Node2D = $ItemSpawner
 
 var p1
 var p2
+var game_world: Node2D
 
 func _ready() -> void:
+	var map = GameManager.map_scene.instantiate()
+	$HBoxContainer/SubViewportContainer/SubViewport.add_child(map)
+	game_world = map
+	set_camera_limits(map)
+	
+	var spawn_points = []
+	for node in game_world.get_node("ItemSpawns").get_children():
+		spawn_points.append(node.global_position)
+
+	item_spawner.setup(spawn_points, game_world)
+	
 	p1 = GameManager.player1_scene.instantiate()
 	p1.player_id       = 1
 	p1.global_position = game_world.get_node("Spawn1").global_position
@@ -90,3 +102,36 @@ func _unhandled_input(event: InputEvent) -> void:
 			_on_resume_btn_pressed()
 		else:
 			_on_pause_btn_pressed()
+
+func set_camera_limits(map):
+	var top_limit
+	var left_limit
+	var right_limit
+	var bottom_limit
+	
+	if map.name == "GameWorld1":
+		top_limit = -256
+		left_limit = 0
+		right_limit = 1920
+		bottom_limit = 640
+	elif map.name == "GameWorld2":
+		top_limit = 0
+		left_limit = 0
+		right_limit = 1920
+		bottom_limit = 896
+	else:
+		top_limit = -256
+		left_limit = 0
+		right_limit = 1920
+		bottom_limit = 640
+	
+	camera1.limit_top = top_limit
+	camera1.limit_left = left_limit
+	camera1.limit_right = right_limit
+	camera1.limit_bottom = bottom_limit
+	
+	camera2.limit_top = top_limit
+	camera2.limit_left = left_limit
+	camera2.limit_right = right_limit
+	camera2.limit_bottom = bottom_limit
+	
